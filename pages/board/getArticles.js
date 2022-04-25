@@ -1,5 +1,5 @@
 import Head from "next/head"
-import tableStyles from "../common/styles/table.module.css"
+import tableStyles from '../common/styles/Table.module.css'
 import { useEffect ,useState} from "react"
 import axios from "axios"
 

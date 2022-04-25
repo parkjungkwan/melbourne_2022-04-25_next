@@ -1,5 +1,3 @@
-import { response } from 'express'
-import { all } from 'express/lib/application'
 import { call, delay, put, takeLatest } from 'redux-saga/effects'
 import * as T from "../types"
 
@@ -19,7 +17,7 @@ function* addUser(action){
         })
     }
 }
-function* watchAddUser(){
+export function* watchAddUser(){
     yield takeLatest(T.USER_ADD_REQUESTED, addUser)
 }
 

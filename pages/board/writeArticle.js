@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import tableStyles from '../common/styles/table.module.css'
+import tableStyles from '../common/styles/Table.module.css'
 import { useDispatch } from 'react-redux'
 import { addBoard } from '../../redux/reducers/boardReducer.ts'
 export default function Board(){

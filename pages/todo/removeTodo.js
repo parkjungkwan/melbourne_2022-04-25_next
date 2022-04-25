@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import tableStyles from '../common/styles/table.module.css'
+import tableStyles from '../../styles/Table.module.css'
 
 export default function RemoveTodo(){
     const [todo, setTodo] = useState('')

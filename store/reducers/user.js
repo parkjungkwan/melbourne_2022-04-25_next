@@ -3,7 +3,8 @@ import * as T from "../types"
 
 const initialState = {
     users: [],
-    loginUser: null,
+    user: {isLogginIn: true, 
+            data: null},
 }
 
 const userReducer = (state = initialState, action) =>{
@@ -13,5 +14,8 @@ const userReducer = (state = initialState, action) =>{
             return { ...state, ...action.payload }
         case T.USER_ADD_SUCCESSED:
             return { ...state, users: [action.payload, ...state.users] }
+        default:
+            return state;
     }
 }
+export default userReducer
