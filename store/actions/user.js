@@ -1,10 +1,10 @@
 
 import * as T from "../types"
 
-export const addUser = user => {
+export const join = user => {
     
     return {
-        type: T.USER_ADD_REQUEST,
+        type: T.JOIN_REQUEST,
         payload: user
     }
 }
