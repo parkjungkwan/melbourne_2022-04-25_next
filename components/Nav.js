@@ -106,7 +106,7 @@ export function Nav(){
     }
   }
   return (
-    <AppBar position="static" >
+    <AppBar position="static" style={{marginBottom:"70px"}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
