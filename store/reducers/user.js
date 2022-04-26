@@ -1,5 +1,5 @@
 import { HYDRATE } from "next-redux-wrapper"
-import * as T from "../types"
+import * as T from "@/store/types"
 
 const initialState = {
     users: [],

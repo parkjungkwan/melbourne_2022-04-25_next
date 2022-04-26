@@ -1,11 +1,9 @@
 import React,{useState, useEffect} from 'react'
-
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
@@ -16,7 +14,6 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import tableStyles from "@/styles/Table.module.css"
 import MenuItem from '@mui/material/MenuItem';
-//import Home from "@/components"
 import { createSvgIcon } from '@mui/material/utils';
 
 const HomeIcon = createSvgIcon(
@@ -46,7 +43,15 @@ export function Nav(){
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
+  const handleCloseUserMenu = (value) => {
+    switch(value) {
+      case '회원가입':  window.location.href='/user/join' 
+                      break;
+      case '로그인':  window.location.href='/user/login' 
+                      break;
+      default: window.location.href='/'
+                      break;
+    }
     setAnchorElUser(null);
   };
 
@@ -64,7 +69,7 @@ export function Nav(){
   }, [])
 
   const basicUrls = ["/basic/counter","/basic/calc","/basic/bmi"]
-  const basicSubTitle = ["카운터","계산기","BMI"]
+  const basicSubTitle = ["카운터","계산기","BMI", "게시판"]
   // const userUrls = ["/user/join","/user/login","/user/logout","/user/profile","/user/updUser","/user/withdrawUser","user/getUsers"]
   // const userSubTitle = ["회원가입","로그인","로그아웃","프로필","회원수정","회원탈퇴","회원목록"]
   const todoUrls = ["/todo/addTodo","/todo/getTodos","/todo/modifyTodo","/todo/removeTodo"]
@@ -76,10 +81,30 @@ export function Nav(){
   const boardUrls = ["/board/writeArticle","/board/getArticles","/board/modifyArticle","/board/removeArticle"]
   const boardSubTitle = ["글등록","글목록","글수정","글삭제"]
   const handleClick = (value) => { 
-    alert(' >>> '+value)
-    window.location.href='/basic/counter'
+    switch(value) {
+      case '카운터':  window.location.href='/basic/counter' 
+                      break;
+      case '계산기':  window.location.href='/basic/calc' 
+                      break;
+      case 'BMI':  window.location.href='/basic/bmi'
+                      break;
+      case '게시판':  window.location.href='/board/list'
+                      break;
+      default: window.location.href='/'
+                      break;
+    }
   }
-
+  const handleAuth = (value) => {
+    alert('handleAuth '+value)
+    switch(value) {
+      case '회원가입':  window.location.href='/user/join' 
+                      break;
+      case '로그인':  window.location.href='/user/login' 
+                      break;
+      default: window.location.href='/'
+                      break;
+    }
+  }
   return (
     <AppBar position="static" >
       <Container maxWidth="xl">
@@ -141,11 +166,11 @@ export function Nav(){
                 horizontal: 'right',
               }}
               open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
+              onClose={handleAuth}
             >
-              {preSettings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+              {preSettings.map((setting) => ( // 회원가입, 로그인
+                <MenuItem key={setting} >
+                  <Typography textAlign="center" onClick={()=>handleAuth(setting)}>{setting}</Typography>
                 </MenuItem>
               ))}
             </Menu>
