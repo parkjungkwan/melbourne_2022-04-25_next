@@ -11,16 +11,15 @@ import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuIcon from '@mui/icons-material/Menu';
 import Router from "next/router";
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-
-
 import Link from "next/link";
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import tableStyles from "@/styles/Table.module.css"
 import MenuItem from '@mui/material/MenuItem';
 
+const pages = ['카운터', '계산기', 'BMI', '게시판'];
+const preSettings = ['회원가입', '로그인'];
+const postSettings = ['프로필', '정보수정', '로그아웃', '회원탈퇴'];
 
 export function Nav(){
   const [userUrls, setUserUrls] = useState([])
@@ -70,7 +69,6 @@ export function Nav(){
   const boardUrls = ["/board/writeArticle","/board/getArticles","/board/modifyArticle","/board/removeArticle"]
   const boardSubTitle = ["글등록","글목록","글수정","글삭제"]
   const handleClick = e =>{ 
-    alert(' >>  1'+e.target.key)
     window.location.href='/basic/counter'
   }
 
@@ -147,7 +145,12 @@ export function Nav(){
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="Remy Sharp" src="https://avatars.githubusercontent.com/u/502757?v=4" />
+              </IconButton>
+            </Tooltip>
+            <Tooltip title="Open settings">
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <Avatar alt="Remy Sharp" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSojHl4I5WF8e-TSzGQ-NlW5moCUMCny75Vw&usqp=CAU" />
               </IconButton>
             </Tooltip>
             <Menu
@@ -166,7 +169,7 @@ export function Nav(){
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
+              {preSettings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
