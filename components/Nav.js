@@ -16,6 +16,13 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import tableStyles from "@/styles/Table.module.css"
 import MenuItem from '@mui/material/MenuItem';
+//import Home from "@/components"
+import { createSvgIcon } from '@mui/material/utils';
+
+const HomeIcon = createSvgIcon(
+  <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />,
+  'Home',
+);
 
 const pages = ['카운터', '계산기', 'BMI', '게시판'];
 const preSettings = ['회원가입', '로그인'];
@@ -68,7 +75,8 @@ export function Nav(){
   const teamSubTitle = ["팀등록","팀목록","팀수정","팀삭제"]
   const boardUrls = ["/board/writeArticle","/board/getArticles","/board/modifyArticle","/board/removeArticle"]
   const boardSubTitle = ["글등록","글목록","글수정","글삭제"]
-  const handleClick = e =>{ 
+  const handleClick = (value) => { 
+    alert(' >>> '+value)
     window.location.href='/basic/counter'
   }
 
@@ -82,58 +90,24 @@ export function Nav(){
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-            LOGO
+            <Box
+              sx={{
+                '& > :not(style)': {
+                  m: 2,
+                },
+              }}
+            >
+              <HomeIcon />
+              <HomeIcon color="primary" />
+            </Box>
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleClick} >
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
-          >
-            LOGO3
-          </Typography>
+          
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleClick}
+                onClick={()=>handleClick(page)}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page}
