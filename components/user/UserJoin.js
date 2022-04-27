@@ -37,8 +37,8 @@ const UserJoin = ({ onSubmit, onChange, form } )=>{
           <Typography component="h1" variant="h5">
             회원가입
           </Typography>
-          <form onSubmit={ onSubmit } >
-          <Box component="form" noValidate sx={{ mt: 3 }}>
+
+          <Box component="form" noValidate sx={{ mt: 3 }} onSubmit={ onSubmit } >
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6} >
                 <TextField
@@ -148,8 +148,7 @@ const UserJoin = ({ onSubmit, onChange, form } )=>{
               </Grid>
             </Grid>
           </Box>
-          </form>
-        </Box>
+         </Box>
       </Container>
     </ThemeProvider>
   );
