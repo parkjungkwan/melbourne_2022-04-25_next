@@ -16,6 +16,7 @@ const userJoinSaga = createRequestSaga(USER_JOIN, api.userJoin)
 const userLoginSaga = createRequestSaga(USER_LOGIN, api.userLogin)
 
 export function* userSaga() {
+    
     yield takeLatest(USER_JOIN, userJoinSaga)
     yield takeLatest(USER_LOGIN, userLoginSaga)
 }
@@ -23,7 +24,7 @@ export function* userSaga() {
 const initialState = {
     users: [],
     loginUser: {
-        isLogginIn: true,
+        isLogginIn: false,
         data: null
     }
 }

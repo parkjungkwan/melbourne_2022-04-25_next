@@ -4,7 +4,7 @@ import axios from "axios";
 
 export default function Home() {
 
-  useEffect(() => {
+  /**useEffect(() => {
     const loginUser = localStorage.getItem("loginUser")
     const user = JSON.parse(loginUser)
     if( loginUser === null){
@@ -16,7 +16,7 @@ export default function Home() {
       document.getElementById("timeZone").innerHTML = '<h1>환영합니다: '+user.name+'<h1>'
     }
     
-  },[]);
+  },[]); */
   return (
     <table className={tableStyles.table}>
     <thead>

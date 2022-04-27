@@ -1,24 +1,21 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { increaseAsync, decreaseAsync } from '@/modules/user';
-import UserJoin from '@/components/user/UserJoin';
+import React, { useEffect, useState } from 'react'
+import UserJoin from '@/components/user/UserJoin'
+import { useDispatch } from 'react-redux'
+import { userJoin } from "@/modules"
 
-const UserJoinPage = ({ number, increaseAsync, decreaseAsync }) => {
-  return (
-    <UserJoin
-      number={number}
-      onIncrease={increaseAsync}
-      onDecrease={decreaseAsync}
-    />
-  );
-};
-
-export default connect(
-  state => ({
-    number: state.counter
-  }),
-  {
-    increaseAsync,
-    decreaseAsync
+const UserJoinPage = () => {
+  const dispatch = useDispatch()
+  const form = {}
+  const onSubmit = e => {
+    e.preventDefault()
+    const {userid, name, email, password, phone, birth, address} = form
+    alert(" 1단계 "+JSON.stringify(form))
+    dispatch(userJoin({userid, name, email, password, phone, birth, address}))
   }
-)(UserJoinPage);
+  const onChange = e => {
+    e.preventDefault()
+  }
+  return (<UserJoin form={form} onSubmit = {onSubmit} onChange={onChange} />)
+}
+
+export default UserJoinPage
