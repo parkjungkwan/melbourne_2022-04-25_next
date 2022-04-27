@@ -15,11 +15,15 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Head from 'next/head';
 const theme = createTheme();
-const UserJoin = ({ onSubmit, onChange, form } )=>{
+const textMap = {userJoin: "회원가입"}
+const UserJoin = (props )=>{
+  const sendData = () => {
+    props.setValue('a')
+  }
   return (
     <ThemeProvider theme={theme}>
     <Head>
-    <title>사용자| 회원가입</title>
+    <title>사용자| </title>
     </Head>
       <Container component="main" maxWidth="xs">
         <CssBaseline />

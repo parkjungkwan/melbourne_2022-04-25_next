@@ -1,7 +1,7 @@
 import {createAction, handleActions} from 'redux-actions'
 import {call, delay, put, takeLatest} from 'redux-saga/effects'
 import * as api from '@/apis/api'
-import createRequestSaga from '@/apis/createRequestSaga'
+import createRequestSaga from '@/apis/SagaGenerator'
 import {HYDRATE} from "next-redux-wrapper"
 
 const USER_JOIN = 'user/USER_JOIN'

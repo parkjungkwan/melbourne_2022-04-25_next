@@ -1,5 +1,5 @@
 import { wrapper } from '@/modules/store'
-import { Header, Layout, Nav } from "@/components"
+import { Top, Layout, Nav } from "@/components"
 import { useEffect, useState } from 'react'
 const App = ({ Component, pageProps}) => {
   const [showChild , setShowChild] = useState(false)
@@ -11,7 +11,7 @@ const App = ({ Component, pageProps}) => {
   }
   return (<>
   <Nav/>
-    <Header/>
+    <Top/>
     <Layout>
       <Component {...pageProps} />
     </Layout>

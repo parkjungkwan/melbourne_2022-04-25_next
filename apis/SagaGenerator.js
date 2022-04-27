@@ -1,7 +1,13 @@
 import { call, put } from 'redux-saga/effects';
 import { startLoading, finishLoading } from '@/modules/loading';
 
-export default function createRequestSaga(type, request) {
+export const createActionTypes = type => {
+  const SUCCESS = `${type}_SUCCESS`
+  const FAILURE = `${type}_FAILURE`
+  return [type, SUCCESS, FAILURE]
+}
+
+export default function SagaGenerator(type, request) {
   const SUCCESS = `${type}_SUCCESS`;
   const FAILURE = `${type}_FAILURE`;
 

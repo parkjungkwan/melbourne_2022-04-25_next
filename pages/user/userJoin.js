@@ -1,25 +1,45 @@
-import React, { useEffect, useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import UserJoin from '@/components/user/UserJoin'
-import { useDispatch, useSelector } from 'react-redux'
-import { userJoin } from "@/modules"
+import {useDispatch, useSelector} from 'react-redux'
+import {userJoin, inputValues} from "@/modules"
 
 const UserJoinPage = () => {
-  const dispatch = useDispatch()
-  const { form, auth, user } = useSelector(({auth, user}) => ({
-    auth: auth.auth, 
-    user: user.user,
-    authError: auth.authError, 
-    form: auth.userJoin}))
-  const onSubmit = e => {
-    e.preventDefault()
-    const {userid, name, email, password, phone, birth, address} = form
-    alert(" 1단계 "+JSON.stringify(form))
-    dispatch(userJoin({userid, name, email, password, phone, birth, address}))
-  }
-  const onChange = e => {
-    e.preventDefault()
-  }
-  return (<UserJoin form={form} onSubmit = {onSubmit} onChange={onChange} />)
+    const dispatch = useDispatch()
+    const [value, setValue] = useState('')
+    const { auth, user} = useSelector(
+        ({auth, user}) => ({auth: auth.auth, user: user.user, authError: auth.authError, form: auth.userJoin})
+    )
+    const onChange = e => {
+        e.preventDefault()
+        const {name, value} = e.target
+        dispatch(inputValues({form: 'userJoin', key: name, value}))
+    }
+    const onSubmit = e => {
+      alert(' click ')
+        e.preventDefault()
+        const {
+            userid,
+            name,
+            email,
+            password,
+            phone,
+            birth,
+            address
+        } = form
+        dispatch(userJoin({
+            userid,
+            name,
+            email,
+            password,
+            phone,
+            birth,
+            address
+        }))
+    }
+
+    return (<><UserJoin setValue={setValue}/>
+    <h1>{value}</h1>
+    </>)
 }
 
 export default UserJoinPage
