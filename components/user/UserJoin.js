@@ -15,7 +15,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Head from 'next/head';
 const theme = createTheme();
-const UserRegister = ({}) =>{
+const UserJoin = ({}) =>{
     const [user, setUser] =useState({
         userid:'', password:'', email:'', name:'', phone:'', birth:'', address:''
     })
@@ -131,4 +131,4 @@ const UserRegister = ({}) =>{
   );
 }
 
-export default UserRegister
+export default UserJoin

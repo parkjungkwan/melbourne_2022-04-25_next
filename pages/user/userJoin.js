@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { increaseAsync, decreaseAsync } from '@/modules/counter';
-import Counter from '@/components/basic/Counter';
+import { increaseAsync, decreaseAsync } from '@/modules/user';
+import UserJoin from '@/components/user/UserJoin';
 
-const CounterPage = ({ number, increaseAsync, decreaseAsync }) => {
+const UserJoinPage = ({ number, increaseAsync, decreaseAsync }) => {
   return (
-    <Counter
+    <UserJoin
       number={number}
       onIncrease={increaseAsync}
       onDecrease={decreaseAsync}
@@ -21,4 +21,4 @@ export default connect(
     increaseAsync,
     decreaseAsync
   }
-)(CounterPage);
+)(UserJoinPage);
