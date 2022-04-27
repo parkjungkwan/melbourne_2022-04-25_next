@@ -1,1 +1,0 @@
-import tableStyles from '../common/styles/Table.module.css'
